@@ -1,0 +1,21 @@
+databases:
+  - name: rubber_DB
+    databaseName: rubber_db
+    user: rubber
+    region: singapore
+
+services:
+  - type: web
+    name: rubber
+    env: ruby
+    region: singapore
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: rubber_DB
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
