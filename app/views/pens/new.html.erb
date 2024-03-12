@@ -1,0 +1,85 @@
+<h3>新規投稿ページ</h3>
+
+<div class="toukou">
+  <%= form_for @pen do |f| %>
+
+
+    <div class="field">
+      <a><%= f.label :ラバー名（カタカナと英語） %></a>
+      <%= f.text_field :rubbers_name, :size => 30 %>
+    </div>
+
+    <div class='form-group'>
+    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+        <div class='form-check'>
+            <a><%= tag.label class: 'form-check-label' do %></a>
+                <%= tag.check_box class: 'form-check-input' %>
+                <%= tag.text %>
+            <% end %>
+        </div>
+    <% end %>
+  </div>
+
+    <div class="field">
+      <a><%= f.label :企業名  %></a>
+      <%= f.select :company_name, 
+      [["Butterfly", "Butterfly"], 
+      ["Nittaku", "Nittaku"], 
+      ["VICTAS", "VICTAS"],
+      ["Yasaka", "Yasaka"],
+      ["STIGA", "STIGA"],
+      ["TIBHAR", "TIBHAR"],
+      ["MIZUNO", "MIZUNO"],
+      ["Andro", "Andro"],
+      ["Donic", "Donic"],
+      ["JOOLA", "JOOLA"],
+      ["GEWO", "GEWO"],
+      ["XIOM", "XIOM"],
+      ["Armstrong", "Armstrong"],
+      ["JUIC", "JUIC"],
+      ["Cornilleau", "Cornilleau"],
+      ["紅双喜", "紅双喜"],
+      ["Dr.Neubauer", "Dr.Neubauer"],
+      ["その他", "その他"]], include_blank: "選択して下さい" %>
+    </div>
+
+    <div class="field">
+      <a><%= f.label :ラバー画像 %></a>
+      <%= f.file_field :image %>
+    </div>
+
+    <div class="field">
+      <a><%= f.label :強み・向いている人  %></a>
+      <%= f.text_area :strong_point, :size => "30x2" %>
+    </div>
+    
+    <div class="field">
+    <a><%= f.label :弱み・向かない人  %></a>
+    <%= f.text_area :weak_point, :size => "30x2" %>
+    </div>
+
+    <h5>総合評価</h5>
+    <div class="post_form">
+      <%= f.radio_button :overall, 5 ,id: 'star1'%>
+      <label for="star1"><span class="text">最高</span>★</label>
+  
+      <%= f.radio_button :overall, 4 ,id: 'star2'%>
+      <label for="star2"><span class="text">良い</span>★</label>
+  
+      <%= f.radio_button :overall, 3 ,id: 'star3'%>
+      <label for="star3"><span class="text">普通</span>★</label>
+  
+      <%= f.radio_button :overall, 2 ,id: 'star4'%>
+      <label for="star4"><span class="text">悪い</span>★</label>
+  
+      <%= f.radio_button :overall, 1 ,id: 'star5'%>
+      <label for="star5"><span class="text">最悪</span>★</label>
+    </div>
+
+    <%= f.submit "投稿する" %>
+  <% end %>
+
+
+
+  <%= link_to "一覧に戻る", pens_path %>
+</div>

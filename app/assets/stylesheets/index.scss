@@ -1,0 +1,70 @@
+.pens-container {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:flex-start;
+    width: 70%;
+    margin: 10px;
+  }
+  h3 {
+    width: 100%;
+    margin: 30px 0px;
+    text-align: center;
+    justify-content: center;
+    font-size: 30px;
+  }
+  .pen {
+    border-top: solid #00acee;
+    margin: 10px;
+    padding-top: 20px;
+    width:30%;
+    flex-flow: column;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    font-weight: bold;
+  }
+  .main-box {
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .time {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .top{
+    display:flex;
+    margin:20px;
+    justify-content:flex-start;
+  }
+  .kensaku{
+    margin-right: 20px;
+    justify-content: flex-start;
+  }
+  .header-list{
+    display:flex;
+    justify-content: flex-end;
+    margin: 20px;
+  }
+
+  .sindan{
+    text-align: center;
+    margin-top: 200px;
+    font-size: 50px;
+  }
+
+.link{
+    width: 30%;
+    height: 70px;
+    padding: 10px;
+    justify-content: center;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+h4{
+    font-size: 20px;
+    margin: 20px;
+}
+

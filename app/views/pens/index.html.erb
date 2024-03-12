@@ -1,0 +1,43 @@
+<h3>一覧ページ</h3>
+
+<div class="top">
+  <div class="kensaku">
+
+    <h4>ラバーを検索</h4>
+    <%= form_tag({controller:"pens",action:"index"}, method: :get) do %>
+      <%= text_field_tag :search %>
+      <%= submit_tag '検索する'  %>
+    <% end %>
+
+    <%= form_tag({controller:"pens",action:"index"}, method: :get) do %>
+    <% Tag.all.each do |t| %>
+        <li><%= check_box :tag_ids, t.name %><%= t.name %></li>
+    <% end %>
+    <%= submit_tag '検索' %>
+    <% end %>
+  </div>
+
+  <div class="pens-container">
+    <% @pens.each do |t| %>
+      <div class="pen">
+        <h4>総合評価：
+        <span class="star-rating">
+          <span class="star-rating-front" style="width: <%= getPercent(t.overall) %>%;">★★★★★</span>
+          <span class="star-rating-back">★★★★★</span>
+        </span> 
+        </h4>
+      
+        
+        <a><%= image_tag t.image_url, size: "200x200" if t.image? %></a>
+        <a><%= t.rubbers_name %></a>
+        <a><%= t.company_name %></a>
+        <a><%= link_to "詳細へ", pen_path(t.id) %> </a>
+        <% if user_signed_in? && current_user.id == t.user_id %>
+          <a><%= link_to "編集する", edit_pen_path(t.id) %></a>
+          <a><%= link_to "削除する", pen_path(t.id), method: :delete %></a>
+        <% end %> 
+      </div>
+    <% end %>
+
+  </div>
+</div>

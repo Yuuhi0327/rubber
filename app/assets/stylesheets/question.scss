@@ -1,0 +1,28 @@
+.mugitya{
+   justify-content: center;
+   text-align: center;
+   display: flex; 
+   flex-flow: column;
+   margin-top: 200px;
+   font-size: 30px;
+}
+
+.sentakusi{
+    margin-top: 20px;
+    display:flex;
+    justify-content: space-around;
+}
+
+.explane{
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 20px;
+    border: 4px solid;
+    border-color: orange;
+    padding: 25px;
+}
+
+.allquestion{
+    margin-bottom: 0px;
+}
