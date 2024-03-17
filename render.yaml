@@ -1,6 +1,6 @@
 databases:
   - name: rubber_DB
-    databaseName: rubber_db
+    databaseName: rubber_db_6qlh
     user: rubber
     region: singapore
 
